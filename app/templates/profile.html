@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Profil{% endblock %}
+{% block content %}
+<h2>Profil Bilgileri</h2>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.username.label(class="form-label") }}
+        {{ form.username(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control") }}
+    </div>
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+
+<hr>
+<a href="{{ url_for('main.change_password') }}" class="btn btn-warning mt-3">Şifre Değiştir</a>
+{% endblock %}

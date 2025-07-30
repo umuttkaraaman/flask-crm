@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Admin Paneli{% endblock %}
+{% block content %}
+<h2 class="mt-4">👑 Admin Paneli</h2>
+
+<!-- Kullanıcı Listesi -->
+<table class="table mt-3 table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Kullanıcı Adı</th>
+      <th>Email</th>
+      <th>Rol</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr>
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<hr>
+
+<!-- Son Loglar -->
+<h4 class="mt-4">📝 Son Kullanıcı Logları</h4>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Tarih</th>
+      <th>Kullanıcı</th>
+      <th>İşlem</th>
+      <th>Detay</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for log in logs %}
+    <tr>
+      <td>
+        {% if log.timestamp %}
+          {{ log.timestamp.strftime('%Y-%m-%d %H:%M') }}
+        {% else %}
+          -
+        {% endif %}
+      </td>
+      <td>{{ log.user.username if log.user else '-' }}</td>
+      <td>{{ log.action }}</td>
+      <td>{{ log.detail }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

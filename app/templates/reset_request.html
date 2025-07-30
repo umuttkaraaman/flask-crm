@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Şifre Sıfırlama Talebi{% endblock %}
+
+{% block content %}
+<h2>Şifre Sıfırlama Talebi</h2>
+
+<form method="POST">
+  {{ form.hidden_tag() }}
+
+  <div class="mb-3">
+    {{ form.email.label(class="form-label") }}
+    {{ form.email(class="form-control") }}
+  </div>
+
+  <button type="submit" class="btn btn-primary">Gönder</button>
+</form>
+{% endblock %}

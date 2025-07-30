@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Flask stuff
+instance/
+.webassets-cache
+
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
+
+# PyCharm
+.idea/
+
+# SQLite db (varsa)
+*.sqlite3
+
+# Env dosyaları
+.env
